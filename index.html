@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Costar Chain</title>
+<meta name="description" content="Find the shortest chain of shared films between any two actors, powered by TMDB.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">A six-degrees engine for the whole TMDB credit graph</p>
+    <h1>Costar<span class="amp">·</span>Chain</h1>
+    <p class="lede">Choose two actors. Costar Chain searches outward from both of them at once, one film and one co-star at a time, until the two searches meet.</p>
+  </header>
+
+  <form class="marquee" id="pair-form" autocomplete="off">
+    <div class="slot" data-side="a">
+      <label for="input-a">From</label>
+      <div class="picker">
+        <img class="picked-face" id="face-a" alt="" hidden>
+        <input id="input-a" type="text" placeholder="Search an actor…" spellcheck="false" aria-autocomplete="list" aria-controls="list-a">
+        <ul class="suggest" id="list-a" role="listbox" hidden></ul>
+      </div>
+    </div>
+
+    <button type="button" class="swap" id="swap" aria-label="Swap actors" title="Swap actors">⇄</button>
+
+    <div class="slot" data-side="b">
+      <label for="input-b">To</label>
+      <div class="picker">
+        <img class="picked-face" id="face-b" alt="" hidden>
+        <input id="input-b" type="text" placeholder="Search an actor…" spellcheck="false" aria-autocomplete="list" aria-controls="list-b">
+        <ul class="suggest" id="list-b" role="listbox" hidden></ul>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="go" id="go">Find the chain</button>
+      <button type="button" class="ghost" id="random">Surprise me</button>
+    </div>
+  </form>
+
+  <section class="stage" id="stage" aria-live="polite">
+    <div class="status" id="status">
+      <div class="counters">
+        <div><span class="num" id="c-films">0</span><span class="lbl">films scanned</span></div>
+        <div><span class="num" id="c-people">0</span><span class="lbl">people reached</span></div>
+        <div><span class="num" id="c-calls">0</span><span class="lbl">API calls</span></div>
+        <div><span class="num" id="c-time">0.0s</span><span class="lbl">elapsed</span></div>
+      </div>
+      <p class="ticker" id="ticker">&nbsp;</p>
+      <button type="button" class="ghost small" id="cancel" hidden>Stop search</button>
+    </div>
+
+    <div class="result" id="result" hidden>
+      <h2 class="verdict" id="verdict"></h2>
+      <div class="strip-scroll"><ol class="strip" id="strip"></ol></div>
+      <ol class="story" id="story"></ol>
+    </div>
+
+    <p class="message" id="message" hidden></p>
+  </section>
+
+  <footer class="colophon">
+    <a class="tmdb-mark" href="https://www.themoviedb.org/" target="_blank" rel="noopener">TMDB</a>
+    <p>This product uses the TMDB API but is not endorsed or certified by TMDB. Links go to themoviedb.org. Documentaries and archive-footage or "Self" credits are left out so every link is a real on-screen role.</p>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

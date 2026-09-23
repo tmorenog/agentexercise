@@ -1,0 +1,6 @@
+{
+  "name": "costar-chain",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" }
+}
