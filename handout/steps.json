@@ -1,0 +1,205 @@
+{
+ "scout": [
+  {
+   "id": "step-0",
+   "num": "Step 0 · warm-up",
+   "title": "Build your first page",
+   "goal": "See how quickly Lovable can turn a plain-language description into an interface. There is no AI, backend or recipe data yet.",
+   "prompt": "/prompts/scout/step-0.txt",
+   "see": [
+    "A finished-looking page with a theme input, example themes, a button and an empty results area. It is normal that the button does nothing."
+   ],
+   "tryit": [
+    "Ask Lovable to change the colors or visual style.",
+    "Add another example dinner theme.",
+    "Change the title or button text.",
+    "Ask Lovable to make one small layout improvement."
+   ],
+   "callouts": [],
+   "notes": [
+    "Don’t spend too long polishing. You will change the interface as the agent develops."
+   ]
+  },
+  {
+   "id": "step-1",
+   "num": "Step 1",
+   "title": "Connect to real recipe information",
+   "goal": "Give the application reliable actions for finding real recipes. These are ordinary backend functions—not an AI agent.",
+   "prompt": "/prompts/scout/step-1.txt",
+   "see": [
+    "The original Recipe Scout page",
+    "A temporary Recipe Tool Lab",
+    "Real recipes returned from TheMealDB",
+    "Ingredients and instructions when retrieving a complete recipe"
+   ],
+   "tryit": [
+    "In the Recipe Tool Lab, search by name for Arrabiata.",
+    "In the Recipe Tool Lab, search using the ingredient chicken.",
+    "In the Recipe Tool Lab, browse the category Vegetarian or the cuisine Italian.",
+    "In the Recipe Tool Lab, search for something that probably does not exist."
+   ],
+   "callouts": [],
+   "notes": [
+    "Notice the difference between an action and an agent. An action performs one specific task. An agent decides which actions to use and in what order."
+   ]
+  },
+  {
+   "id": "step-2",
+   "num": "Step 2",
+   "title": "Add the Scout Agent",
+   "goal": "Add an AI agent that decides how to search, examines the results and selects four recipes. This is the first step with a “What the Scout Agent is doing” panel.",
+   "prompt": "/prompts/scout/step-2.txt",
+   "see": [
+    "The Scout Agent decides how to search and leaves traces of its behavior",
+    "Four selected recipes with photos and explanations",
+    "A clear explanation if the Scout Agent cannot finish"
+   ],
+   "tryit": [
+    "Try themes like Comfort food, 20-minute vegetarian dinners, Vegan dinners with beef or Antarctic street food. Does it explain honestly when a theme can’t work?",
+    "Which searches does it try first? Watch the actions.",
+    "Change one Scout Agent goal, e.g. five different cuisines, and compare."
+   ],
+   "callouts": [],
+   "notes": [
+    "The important question is not only “Did it find four recipes?” Also ask: “What did it try, and did its choices make sense?”"
+   ]
+  },
+  {
+   "id": "step-3",
+   "num": "Step 3",
+   "title": "Join the multi-agent system",
+   "goal": "Connect Recipe Scout to the class coordinator so its recipes can be checked, saved and passed to other agents, such as the Recipe Pricer and the Meal Planner.",
+   "prompt": null,
+   "see": [],
+   "tryit": [],
+   "callouts": [],
+   "notes": []
+  },
+  {
+   "id": "step-3a",
+   "num": "Step 3a",
+   "title": "Connect to the coordinator",
+   "goal": "Connect the app to the coordinator’s MCP server and look at the actions (tools) it offers.",
+   "prompt": "/prompts/scout/step-3a.txt",
+   "see": [
+    "A successful connection message",
+    "The coordinator confirms your group name, e.g. “You’re connected as group team-3”. If it isn’t your group’s name, fix it before going on.",
+    "The tools provided by the coordinator and a description of what each tool does",
+    "No change to the Scout Agent’s behavior yet"
+   ],
+   "tryit": [
+    "Read the description of each coordinator tool, and the information each one requires.",
+    "Look for your connection on the Coordinator page.",
+    "Discuss which tool the Scout Agent should use first.",
+    "Discuss which tool it would use to hand off a recipe."
+   ],
+   "callouts": [
+    "The class key never goes in a prompt. This step asks Lovable to create a secret. Lovable then shows a secure box where you paste the key."
+   ],
+   "notes": [
+    "MCP allows an application to discover what another system can do. The coordinator describes its tools, so Recipe Scout does not need to have their names and input formats written into its code."
+   ]
+  },
+  {
+   "id": "step-3b",
+   "num": "Step 3b",
+   "title": "Let the Scout Agent use the coordinator",
+   "goal": "Give the discovered coordinator tools to the Scout Agent. The Scout Agent will learn how to work with the coordinator, submit recipes, respond to rejections and complete the handoff so that other agents can use the recipes.",
+   "prompt": "/prompts/scout/step-3b.txt",
+   "see": [
+    "Its searches, lookups and saves appear in “What the Scout Agent is doing”.",
+    "It searches and examines real recipes through TheMealDB and submits recipes to the coordinator.",
+    "Accepted and rejected submissions are clearly identified and the Scout Agent tries to correct rejected recipes.",
+    "Four accepted recipes appear on the Coordinator page under your group.",
+    "The Recipe Pricer starts pricing them: see the Recipe Pricer page."
+   ],
+   "tryit": [
+    "Run the same theme twice and observe duplicate handling.",
+    "Try a contradictory theme.",
+    "Open a rejected exchange on the Coordinator page and compare it with an accepted one.",
+    "Change one Scout Agent instruction and compare its behavior.",
+    "Find a moment in “What the Scout Agent is doing” where a tool’s answer changed the agent’s next move.",
+    "Ask Lovable to keep a history of past runs you can reopen.",
+    "Ask Lovable to test the app."
+   ],
+   "callouts": [],
+   "notes": [
+    "Each group can save a limited number of recipes in total (the coordinator tells your agent how many), so plan your runs: once the limit is reached, further saves are rejected."
+   ]
+  }
+ ],
+ "planner": [
+  {
+   "id": "step-1",
+   "num": "Step 1",
+   "title": "Build the interface",
+   "goal": "Create the page where you enter a budget, dietary requirements and preferences, and where the week will appear. There is no AI, backend or recipe data yet.",
+   "prompt": "/prompts/planner/step-1.txt",
+   "see": [
+    "The page: the budget, dietary requirements and preferences boxes, the “Plan my week” button and five empty days. The button does nothing yet."
+   ],
+   "tryit": [
+    "Ask Lovable to change the colors or layout to make it your own."
+   ],
+   "callouts": [],
+   "notes": [
+    "Don’t spend too long polishing. You will change the interface as the agent develops."
+   ]
+  },
+  {
+   "id": "step-2",
+   "num": "Step 2",
+   "title": "Connect to the coordinator",
+   "goal": "Connect the app to the coordinator’s MCP server, look at the actions (tools) it offers and use them to show the recipes the class has saved, with the prices the Pricer Agent worked out. There is no AI yet.",
+   "prompt": "/prompts/planner/step-2.txt",
+   "see": [
+    "A successful connection message",
+    "The coordinator confirms your group name, e.g. “You’re connected as group team-3”. If it isn’t your group’s name, fix it before going on.",
+    "The tools provided by the coordinator and a description of what each tool does",
+    "How the coordinator works: the plan format, the checks and the limits",
+    "A table of the class’s priced recipes, with the groups that scouted each one. If it is empty, the Scout Agents haven’t saved recipes yet or the Pricer Agent is still working on them."
+   ],
+   "tryit": [
+    "Read the checks the coordinator applies to every plan.",
+    "Look for your connection on the Coordinator page.",
+    "Discuss which tools the Meal Planner Agent should use, and in what order."
+   ],
+   "callouts": [
+    "The class key never goes in a prompt. This step asks Lovable to create a secret. Lovable then shows a secure box where you paste the key."
+   ],
+   "notes": [
+    "The Meal Planner never talks to the Scout Agents or the Pricer Agent directly. It reads their work from the coordinator, which stores the recipes and prices and describes how to use them."
+   ]
+  },
+  {
+   "id": "step-3",
+   "num": "Step 3",
+   "title": "Add the Meal Planner Agent",
+   "goal": "Add an AI agent that learns how to work with the coordinator, chooses five dinners, asks the coordinator to check the plan, improves it and saves it so the rest of the class can see it.",
+   "prompt": "/prompts/planner/step-3.txt",
+   "see": [
+    "It drafts a plan, asks the coordinator to check it and changes dinners when a check fails.",
+    "Its explanations say how the dinners meet your dietary requirements: the coordinator checks the budget and the class’s rules (see “The checks” below), not free-text requirements.",
+    "Five dinners fill Monday to Friday, each showing which groups scouted it, with the average cost of a dinner against the budget and each check marked ✓ or ✗.",
+    "The outcome: valid plan found, no feasible plan found, or run failed, with an explanation.",
+    "The saved plan appears on the Coordinator page under your group."
+   ],
+   "tryit": [
+    "A tiny budget, such as $1 a dinner. Does it explain that it can’t be done, or pretend?",
+    "A rule of your own, such as no dinner over 45 minutes.",
+    "Change one Meal Planner Agent instruction and compare its behavior.",
+    "Experiment with different instructions and goals, such as food from a different continent every day.",
+    "Find a moment in “What the Meal Planner Agent is doing” where a tool’s answer changed the agent’s next move.",
+    "Ask Lovable to add a shopping list: the ingredients of the five dinners, each listed once.",
+    "Ask Lovable to keep a history of past runs you can reopen.",
+    "Ask Lovable to test the app."
+   ],
+   "callouts": [
+    "Before you start: continue once “Available recipes” shows at least five priced recipes. If it doesn’t, tell the instructor."
+   ],
+   "notes": [
+    "The important question is not only “Did it save a plan?” Also ask: “Did it fix the checks that failed, and are its explanations honest?”"
+   ]
+  }
+ ]
+}
